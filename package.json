@@ -1,0 +1,10 @@
+{
+  "name": "Alatheia",
+  "version": "0.0.2",
+  "private": true,
+  "dependencies": { 
+    "express": "^4.0.0", 
+    "winston": "^1.0.0",
+    "body-parser": "~1.14.2"
+  }
+}
