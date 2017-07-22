@@ -4,8 +4,8 @@ var config = {
     "constant": {
     },
     "sequelize": {
-      "username": process.env.BK_DB_USERNAME || "lalland",
-      "password": process.env.BK_DB_PASSWORD || "BlaBla!234",
+      "username": process.env.BK_DB_USERNAME || "lallandasas",
+      "password": process.env.BK_DB_PASSWORD || "BlaBla4",
       "pool": 200,
       "database": "faasos_platform_daily",
       "host": "abra ka dabra",
