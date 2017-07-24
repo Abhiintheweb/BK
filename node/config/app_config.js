@@ -4,11 +4,11 @@ var config = {
     "constant": {
     },
     "sequelize": {
-      "username": process.env.BK_DB_USERNAME || "i4t",
-      "password": process.env.BK_DB_PASSWORD || "Pass123#",
+      "username": process.env.BK_DB_USERNAME || "1212",
+      "password": process.env.BK_DB_PASSWORD || "1212#",
       "pool": 200,
-      "database": "faasos_platform_daily",
-      "host": "223.31.64.6",
+      "database": "1212",
+      "host": "223.qwqw.21212.6",
       "port": 1433,
       "dialect": "mysql",
       "dialectOptions": {
