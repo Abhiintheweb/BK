@@ -4,22 +4,6 @@ var numCPUs = require('os').cpus().length;
 var config = require('./config/app_config');
 var env = config["env"];
 
-var Sequelize=require("sequelize")
-const sequelize = new Sequelize('ALOHAINSIGHT', 'i4t', 'Pass123#', {
-  host: '223.31.64.6',
-  dialect: 'mysql',
-  port:1433,
-
-  pool: {
-    max: 5,
-    min: 0,
-    idle: 10000
-  }
-});
-
-console.log("==========",sequelize)
-
-
 if (cluster.isMaster) {
   logger.info("[ENV] [APP] " + env);
   // Fork workers. 

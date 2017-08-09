@@ -5,7 +5,9 @@
   "dependencies": {
     "body-parser": "~1.14.2",
     "express": "^4.0.0",
+    "mysql2": "^1.4.0",
     "sequelize": "^4.4.2",
+    "tedious": "^2.0.0",
     "winston": "^1.0.0"
   }
 }
