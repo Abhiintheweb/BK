@@ -4,11 +4,11 @@ var config = {
     "constant": {
     },
     "sequelize": {
-      "username": process.env.BK_DB_USERNAME || "1212",
-      "password": process.env.BK_DB_PASSWORD || "1212#",
+      "username": process.env.BK_DB_USERNAME || "root",
+      "password": process.env.BK_DB_PASSWORD || "",
       "pool": 200,
-      "database": "1212",
-      "host": "223.qwqw.21212.6",
+      "database": "food",
+      "host": "localhost",
       "port": 1433,
       "dialect": "mysql",
       "dialectOptions": {
@@ -23,8 +23,6 @@ var config = {
   }
 }
 module.exports = config;
-
-
 
 
 

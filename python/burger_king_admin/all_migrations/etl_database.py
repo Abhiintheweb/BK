@@ -2,9 +2,9 @@
 import pymssql
 # import pymysql
 
-server ="223.31.64.11"
-user ="i"
-password ="Pass1#"
+server ="223.31.64.6"
+user ="i4t"
+password ="Pass123#"
 
 
 class EtlDataBase(object):

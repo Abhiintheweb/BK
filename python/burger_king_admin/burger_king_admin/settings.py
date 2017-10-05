@@ -77,9 +77,9 @@ WSGI_APPLICATION = 'burger_king_admin.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE':"django.db.backends.mysql",
-        'NAME':"client_platform",
+        'NAME':"food",
         'USER': 'root',
-        'PASSWORD': 'root',
+        'PASSWORD': '',
         'HOST': '127.0.0.1',
         'PORT': '3306',
         
