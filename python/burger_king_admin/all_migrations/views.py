@@ -65,7 +65,12 @@ class GreetingView(View):
 
     def get(self, request): 
 
+     
+        # CONVERT(CHAR(10), convert(DATE, '6/25/2014 12:00:00 AM'), 126)
+
         data=etl_db.get_data_from_query("""SELECT TOP 100000 DateOfBusiness as date_of_business,
+                    SystemDate as system_date,
+                    
                     FKStoreId as store_id,
                     FKEmployeeNumber as employee_id,
                     CheckNumber as check_number,
@@ -80,14 +85,19 @@ class GreetingView(View):
         all_orders_details=[]
 
         for i in data:
+            
+
             all_orders_details.append(Orders(store_id=i["store_id"],employee_id=i["employee_id"],
                                     check_number=i["check_number"],item_id=i["item_id"],order_mode_id=i["order_mode_id"],
                                     day_part_id=i["day_part_id"],price=i["price"],
                                     disc_price=i["disc_price"],
-                                    quick_combo_id=i["quick_combo_id"]
+                                    quick_combo_id=i["quick_combo_id"],
+                                    system_date=i["system_date"],
+                                    date_of_business=i["date_of_business"]
+
                                     ))
 
-        Orders.objects.bulk_create(all_orders_details,batch_size=100)       
-        return HttpResponse("completed etl")
+        x=Orders.objects.bulk_create(all_orders_details,batch_size=100)       
+        return HttpResponse("completed etl"+str(x))
 
 

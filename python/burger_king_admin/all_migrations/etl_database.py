@@ -2,7 +2,7 @@
 import pymssql
 # import pymysql
 
-server ="223.31.64.6"
+server ="114.79.159.179"
 user ="i4t"
 password ="Pass123#"
 

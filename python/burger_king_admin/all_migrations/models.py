@@ -9,7 +9,7 @@ from django.db import models
 class Orders(models.Model):
 	id=models.AutoField(primary_key=True)
  	date_of_business=models.DateTimeField()
- 	store_id=models.IntegerField()
+	store_id=models.IntegerField()
  	employee_id=models.IntegerField()
  	check_number=models.IntegerField()
  	item_id=models.IntegerField()
@@ -20,6 +20,7 @@ class Orders(models.Model):
  	quick_combo_id=models.IntegerField()
  	created_at=models.DateTimeField(auto_now_add=True)
   	updated_at=models.DateTimeField(auto_now=True)
+  	system_date=models.DateTimeField()
 
  	# def __str__(self):
  	# 	return self.id
