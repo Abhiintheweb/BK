@@ -12,6 +12,18 @@ from all_migrations.models import Orders, Store_Details
 import etl_database 
 etl_db=etl_database.EtlDataBase()
 
+
+from all_migrations.migrations_helper import sync_data_from_remote_database
+
+data= sync_data_from_remote_database()
+
+print data.in_sync(1,2)
+
+
+last_inserted=data.get_last_inserted_in_target_table()
+d=data.get_data_from_source(last_inserted)
+data.insert_data_in_target_table(d)
+# print d
 class GreetingView(View):
 
 
@@ -68,8 +80,8 @@ class GreetingView(View):
      
         # CONVERT(CHAR(10), convert(DATE, '6/25/2014 12:00:00 AM'), 126)
 
-        data=etl_db.get_data_from_query("""SELECT TOP 100000 DateOfBusiness as date_of_business,
-                    SystemDate as system_date,
+        data=etl_db.get_data_from_query("""SELECT TOP 10 DateOfBusiness as date_of_business,
+                    SystemDate as system_date,UNIQueID as source_unique_id,
                     
                     FKStoreId as store_id,
                     FKEmployeeNumber as employee_id,
@@ -83,7 +95,7 @@ class GreetingView(View):
                 FROM dpvHstGndItem""")       
     
         all_orders_details=[]
-
+        print data
         for i in data:
             
 
@@ -93,7 +105,8 @@ class GreetingView(View):
                                     disc_price=i["disc_price"],
                                     quick_combo_id=i["quick_combo_id"],
                                     system_date=i["system_date"],
-                                    date_of_business=i["date_of_business"]
+                                    date_of_business=i["date_of_business"],
+                                    source_unique_id=i["source_unique_id"]
 
                                     ))
 

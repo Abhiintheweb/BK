@@ -7,7 +7,7 @@ from django.db import models
 
 
 class Orders(models.Model):
-	id=models.AutoField(primary_key=True)
+	id=models.AutoField(primary_key=True,unique=True)
  	date_of_business=models.DateTimeField()
 	store_id=models.IntegerField()
  	employee_id=models.IntegerField()
@@ -20,7 +20,8 @@ class Orders(models.Model):
  	quick_combo_id=models.IntegerField()
  	created_at=models.DateTimeField(auto_now_add=True)
   	updated_at=models.DateTimeField(auto_now=True)
-  	system_date=models.DateTimeField()
+  	system_date=models.DateTimeField(null=True,blank=True)
+  	source_unique_id=models.IntegerField(unique=True)
 
  	# def __str__(self):
  	# 	return self.id
@@ -46,6 +47,8 @@ class Store_Details(models.Model):
 	region_id=models.IntegerField()
 	city_id=models.IntegerField()
 	store_short_name=models.CharField(max_length=128)
+	source_unique_id=models.IntegerField(unique=True)
+
 
  	# def __str__(self):
  	# 	return self.id
