@@ -9,7 +9,6 @@ var config = {
       "pool": 200,
       "database": "food",
       "host": "localhost",
-      "port": 1433,
       "dialect": "mysql",
       "dialectOptions": {
         "multipleStatements": true
@@ -19,7 +18,7 @@ var config = {
         "timestamps": true,
         "underscored": true
       }
-    }
+    },
   }
 }
 module.exports = config;
