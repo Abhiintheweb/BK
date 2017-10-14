@@ -31,6 +31,33 @@ module.exports = function (sequelize, DataTypes) {
         }).catch(function (err) {
           callback(err, null);
         });
+      },
+      hourly_sales_data: function(date, callback){
+        
+        var sql ="select hour( system_date) as hour_slot,sum(disc_price) as total_amount\
+        from orders where date(system_date)=:date group by hour( system_date)"
+        sequelize.query(sql, {replacements: {
+            date: date
+          }}
+        ).spread(function (data, metadata) {
+          callback(null, data);
+        }).catch(function (err) {
+          callback(err, null);
+        });
+      },
+      hourly_sales_detail: function(date,slot_no, callback){
+        
+        var sql ="select employee_id,check_number,disc_price from orders\
+         where date(system_date)=:date and hour(system_date)=:slot_no;"
+        sequelize.query(sql, {replacements: {
+            date: date,
+            slot_no: slot_no
+          }}
+        ).spread(function (data, metadata) {
+          callback(null, data);
+        }).catch(function (err) {
+          callback(err, null);
+        });
       }
     },
     tableName: 'orders',
